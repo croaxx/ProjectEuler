@@ -13,15 +13,15 @@ class Circuit
 {
 private:
 	int N;
-	T Capacitance;
+	T _capacitance;
 	vector<set<T>> _capacitancesArrays;
 	set<T> _uniqueCapacitances;
 public:
 	Circuit() = delete;
 
-	explicit Circuit(const T& _cap) :Capacitance(_cap), N(1)
+	explicit Circuit(const T& _cap) :_capacitance(_cap), N(1)
 	{
-		_capacitancesArrays.push_back(set<T> { Capacitance });
+		_capacitancesArrays.push_back(set<T> { _capacitance });
 		_uniqueCapacitances.insert(begin(_capacitancesArrays[0]), end(_capacitancesArrays[0]));
 	};
 
