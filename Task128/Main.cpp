@@ -36,7 +36,7 @@ set<setType> get_primes(setType max)
 
 auto ComputePDVecrtical(setType n, const set<setType>& primes) -> int
 {
-	setType primeCounter = 0;
+	int primeCounter = 0;
 
 	if (primes.find(6 * n - 1) != end(primes))
 		++primeCounter;
@@ -71,7 +71,7 @@ auto main() -> int
 	setType N = 80000;
 	auto primes = get_primes(100000000);
 
-	setType pdCounter = 2;
+	int pdCounter = 2;
 
 	for (setType i = 2; i < N; ++i)
 	{
