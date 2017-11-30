@@ -1,5 +1,3 @@
-// Problem description: https://www.hackerrank.com/challenges/merging-communities/leaderboard
-
 #include <cmath>
 #include <vector>
 #include <iostream>
@@ -13,14 +11,14 @@ using vi = vector<int>;
 class DisjointSet
 {
 private:
-    vi communitySizes;
+	vi communitySizes;
 	vi parent;
 	vi rank;
 public:
 	DisjointSet(int n)
 	{
 		parent.resize(n, 0);
-        communitySizes.resize(n, 1);
+		communitySizes.resize(n, 1);
 		iota(begin(parent), end(parent), 0);
 		rank.resize(n);
 	}
@@ -30,10 +28,10 @@ public:
 		return (parent[i] == i) ? i : (parent[i] = findSet(parent[i]));
 	}
 
-    int CommunitySize(int person)
-    {
-        return communitySizes[findSet(person)];
-    }
+	int CommunitySize(int person)
+	{
+		return communitySizes[findSet(person)];
+	}
 
 	bool isSameSet(int i, int j)
 	{
@@ -48,16 +46,16 @@ public:
 			int y = findSet(j);
 
 			if (rank[x] > rank[y])
-            {
-                parent[y] = x;
-                communitySizes[x] += communitySizes[y];
-                communitySizes[y] = 0;
-            }
+			{
+				parent[y] = x;
+				communitySizes[x] += communitySizes[y];
+				communitySizes[y] = 0;
+			}
 			else
 			{
 				parent[x] = y;
-                communitySizes[y] += communitySizes[x];
-                communitySizes[x] = 0;
+				communitySizes[y] += communitySizes[x];
+				communitySizes[x] = 0;
 
 				if (rank[x] == rank[y])
 					++rank[y];
@@ -71,29 +69,31 @@ public:
 	}
 };
 
-
 int main()
 {
-    int N, q; cin >> N >> q;
+	int N, q;
+	cin >> N >> q;
 
-    DisjointSet comminity(N);
+	DisjointSet comminity(N);
 
-    for (int qi = 0; qi < q; ++qi)
-    {
-        char v; cin >> v;
+	for (int qi = 0; qi < q; ++qi)
+	{
+		char v;
+		cin >> v;
 
-        if (v == 'Q')
-        {
-            int n; cin >> n;
-            printf("%d\n", comminity.CommunitySize(n - 1));
-        }
-        else if (v == 'M')
-        {
-            int i, j; cin >> i >> j;
-            comminity.UnionSet(i - 1, j - 1);
-        }
-    }
+		if (v == 'Q')
+		{
+			int n;
+			cin >> n;
+			printf("%d\n", comminity.CommunitySize(n - 1));
+		}
+		else if (v == 'M')
+		{
+			int i, j;
+			cin >> i >> j;
+			comminity.UnionSet(i - 1, j - 1);
+		}
+	}
 
-    return 0;
+	return 0;
 }
-
