@@ -45,9 +45,9 @@ int main()
     {
         lli idx = i;
         if (i >= middle + 1) idx = n - i - 1;
-        sum = (sum %N + (A[i] % N)*(B[idx]%N) % N);
+        sum = (sum % N + (A[i] % N) * (B[idx] % N) % N);
     }
 
-    printf("%lld", sum  % N);
+    printf("%lld", sum % N);
     return 0;
 }
