@@ -12,7 +12,7 @@ using vvi = vector<vi>;
 
 const int INF = int(~0u / 2);
 
-int min_pages(const vi &A, vvi &memo, const vi &prefix_sum, int books, int students)
+int min_pages(const vi& A, vvi& memo, const vi& prefix_sum, int books, int students)
 {
     if (books < students) return -1;
 
