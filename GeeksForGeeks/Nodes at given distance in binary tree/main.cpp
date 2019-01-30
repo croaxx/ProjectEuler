@@ -53,4 +53,5 @@ int printkdistanceNode(node* root, node* target, int k)
     target->left = target->right = nullptr; // disconnect the tree below the target node
     change_root(root, nullptr, target); // set target to be the root of the tree
     printkdistanceNode(target, k, 0); // traverse the upper part of the tree
+    return 1;
 }
