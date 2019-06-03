@@ -28,7 +28,7 @@ private:
 
     void build(int p, int L, int R)
     {
-        if (L == R)	st_min[p] = L;
+        if (L == R) st_min[p] = L;
         else
         {
             build(left(p), L, (L + R) / 2);
